@@ -17,6 +17,8 @@ public class PanelConsultas extends JPanel {
 	public JButton btnMun;
 	public JButton btnCed;
 	
+	public ConsultaDep cdp = new ConsultaDep();
+	
 	public PanelConsultas() {
 		setLayout(null);
 		setBackground(Color.white);

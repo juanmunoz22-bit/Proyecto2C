@@ -20,8 +20,6 @@ import co.edu.unbosque.model.persistencia.LeerArchivos;
 
 public class CreacionUsuario extends JFrame {
 	
-
-	
 	public JComboBox tipoSexoCmb;
 	public JComboBox diaExpCmb;
 	public JComboBox mesExpCmb;
@@ -73,9 +71,9 @@ public class CreacionUsuario extends JFrame {
 		titulo = new JLabel("NUEVO USUARIO");
 		titulo.setBounds(150, 10, 200, 50);
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
+		titulo.setBackground(Color.BLACK);
+		
 		add(titulo);
-		
-		
 		
 		activarComponentes();
 		
@@ -168,16 +166,17 @@ public class CreacionUsuario extends JFrame {
 		anoExpCmb.setBounds(350,200 ,50 ,20 );
 		add(anoExpCmb);
 		
-		
 		fechaNacLbl = new JLabel("Fecha Nacimiento");
 		fechaNacLbl.setBounds(50, 220, 120, 20);
 		add(fechaNacLbl);
+		
 		File diaN = new File ("./src/co/edu/unbosque/data/dia");;
 		ArrayList<String> listaDiaN = new ArrayList<String>();
 		leerArchivo.leerFecha(diaN, listaDiaN);
 		diaNacCmb = new JComboBox(listaDiaN.toArray());
 		diaNacCmb.setBounds(250,220 ,40 ,20 );
 		add(diaNacCmb);
+		
 		File mesN = new File ("./src/co/edu/unbosque/data/mes");;
 		ArrayList<String> listaMesN = new ArrayList<String>();
 		leerArchivo.leerFecha(mesN, listaMesN);
@@ -191,7 +190,6 @@ public class CreacionUsuario extends JFrame {
 		anoNacCmb.setBounds(350,220 ,50 ,20 );
 		add(anoNacCmb);
 		
-		
 		tipoUsuario = new JLabel("Sexo");
 		tipoUsuario.setBounds(50, 240, 100, 20);
 		add(tipoUsuario);
@@ -201,7 +199,6 @@ public class CreacionUsuario extends JFrame {
 		tipoSexoCmb = new JComboBox(listaTipoUsuario);
 		tipoSexoCmb.setBounds(250, 240, 150, 20);
 		add(tipoSexoCmb);
-		
 		
 		atrasBtn = new JButton("Regresar");
 		atrasBtn.setBounds(120, 310, 100, 20);
