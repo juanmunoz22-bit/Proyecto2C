@@ -9,9 +9,16 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
+import java.util.ArrayList;
+
+import co.edu.unbosque.model.Puesto;
 
 
 public class Propiedades {	
+	
+	ArrayList<String> puestos;
+	int cont=0;
+	
 	
 	public void leer() {
 	
@@ -28,11 +35,11 @@ public class Propiedades {
         String line = bufferedReader.readLine();
         
         while( line != null ) {
-            sb.append( line );
-            line = bufferedReader.readLine();
-            System.out.println(line);
+            puestos= new ArrayList<String>();
+            
+            puestos.add(line);
         }
-        
+        System.out.println(line);
         bufferedReader.close();
         result = sb.toString();
         

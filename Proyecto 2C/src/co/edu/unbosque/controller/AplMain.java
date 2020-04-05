@@ -4,6 +4,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import co.edu.unbosque.model.Sistema;
+import co.edu.unbosque.model.persistencia.SistemaDAO;
 import co.edu.unbosque.view.CreacionUsuario;
 import co.edu.unbosque.view.VentanaPrincipal;
 
@@ -25,7 +26,7 @@ public class AplMain {
 		}
 		
 		
-		Sistema sistema = new Sistema();
+		SistemaDAO sistema = new SistemaDAO();
 		CreacionUsuario usuario = new CreacionUsuario();
 		VentanaPrincipal vp = new VentanaPrincipal();
 		Controller controller = new Controller(vp, sistema);

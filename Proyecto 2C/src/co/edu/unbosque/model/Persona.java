@@ -1,13 +1,18 @@
 package co.edu.unbosque.model;
 
+import java.io.Serializable;
 
 /**
  * Clase que define a una persona
  * 
  * @author Grupo Votacion
  */
-public class Persona {
+public class Persona implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1709433305121355488L;
 	private String numero_cedula;
 	private String fecha_exp;
 	private String lugar_exp;

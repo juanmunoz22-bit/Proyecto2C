@@ -1,8 +1,14 @@
 package co.edu.unbosque.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Sistema implements Estadistica, Ciudadano {
+public class Sistema implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5334213412722624005L;
 
 	private Persona persona = null;
 	
@@ -37,83 +43,6 @@ public class Sistema implements Estadistica, Ciudadano {
 		this.arraypersonas = arraypersonas;
 	}
 
-	public Persona buscarPersona(String cedula, ArrayList<Persona> arraypersonas) {
-		Persona p = null;
-		if (!arraypersonas.isEmpty()) {
-			for (int i = 0; i <= arraypersonas.size()-1 ; i++) {
-				if(arraypersonas.get(i).getNumero_cedula().equals(cedula)){
-					p = arraypersonas.get(i);
-				}
-			}
-			
-		}
-		return p;
-	}
-	@Override
-	public boolean agregarPersona(String cedula,Persona persona, ArrayList<Persona> arraypersonas) {
-		Persona nuevo = null;
-		if (buscarPersona(cedula, arraypersonas)==null) {
-			nuevo=persona;
-			arraypersonas.add(persona);
-			return true;
-		}else {
-			return false;
-		}
-	}
-
-	@Override
-	public String modificarCiudadano(int pos, String n1, String n2, String a1, String a2) {
-		String mensaje="";
-		if(n1.isEmpty() && n2.isEmpty() && a1.isEmpty() && a2.isEmpty()) {
-			mensaje="Para guardar debe sobreescribir al menos un campo";
-		}
-		else {
-			if (!n1.isEmpty()) {
-				arraypersonas.get(pos).setNombre1(n1);
-				mensaje="Se han hecho los cambios en el primer nombre";
-			}
-			if(!n2.isEmpty()) {
-				arraypersonas.get(pos).setNombre2(n2);
-				mensaje="Se han hecho los cambios en el segundo nombre";
-			}
-			if(!a1.isEmpty()) {
-				arraypersonas.get(pos).setApellido1(a1);
-				mensaje="Se han hecho los cambios en el primer apellido";
-			}
-			if(!a2.isEmpty()) {
-				arraypersonas.get(pos).setApellido2(a2);
-				mensaje="Se han hecho los cambios en el segundo apellido";
-			}
-		}
-		return mensaje;
-	}
-
-	@Override
-	public String eliminarPersona(int pos) {
-		
-		String mensaje = "";
-		arraypersonas.remove(pos);
-		mensaje = "Se ha eliminado la persona";
-		return mensaje;
-		
-	}
-
-	
-
-	@Override
-	public void mostrarInfoPuesto() {
-		
-	}
-
-	@Override
-	public void modificarPuesto() {
-		
-	}
-
-	@Override
-	public void calcularEstadistica() {
-		
-	}
 
 	
 	 

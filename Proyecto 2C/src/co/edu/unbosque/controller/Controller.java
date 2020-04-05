@@ -2,11 +2,15 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Persona;
 import co.edu.unbosque.model.Puesto;
 import co.edu.unbosque.model.Sistema;
+import co.edu.unbosque.model.persistencia.Archivo;
+import co.edu.unbosque.model.persistencia.SistemaDAO;
 import co.edu.unbosque.view.CreacionUsuario;
 import co.edu.unbosque.view.VentanaPrincipal;
 
@@ -19,8 +23,11 @@ import co.edu.unbosque.view.VentanaPrincipal;
  */
 public class Controller implements ActionListener {
 	
-	Sistema sistema = null;
+	ArrayList<Persona> arraypersonas;
 	VentanaPrincipal vp=null;
+	private Archivo archivo;
+	SistemaDAO sistema;
+	
 
 	private String cedula;
 	private String nombre1="", nombre2="", apellido1="", apellido2="", lugar_exp="", lugar_nac="", sexo="", fechaN="",
@@ -34,11 +41,16 @@ public class Controller implements ActionListener {
 	 * @param persona Utiliza las propiedades del constructor de la clase Persona
 	 * @param puesto Utiliza las propiedades del constructor de la clase Puesto
 	 */
-	public Controller(VentanaPrincipal vp, Sistema sistema) {
+	public Controller(VentanaPrincipal vp, SistemaDAO sistema) {
 		super();
-		this.sistema = sistema;
 		this.vp = vp;
 		actionListener(this);
+		this.sistema = sistema;
+		arraypersonas = new ArrayList<Persona>();
+		archivo= new Archivo();
+		sistema = new SistemaDAO(archivo);
+		
+		
 	}
 	
 	/**
