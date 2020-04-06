@@ -32,12 +32,11 @@ public class VentanaPrincipal extends JFrame {
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
-		
 		add(titulo);
 		add(pu);
 		add(pp);
 		add(pe);
-		getContentPane().setBackground(Color.LIGHT_GRAY);
+		getContentPane().setBackground(Color.WHITE);
 
 		setResizable(true);// IMPIDE QUE EL USUARIO MODIFIQUE EL TAMAÑO DE LA VENTANA
 		setLocationRelativeTo(null);// CENTRAR LA VENTANA EN LA PANTALLA

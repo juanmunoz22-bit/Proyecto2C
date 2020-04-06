@@ -34,10 +34,10 @@ public class Archivo {
 	}
 	
 
-	public void escribirEnArchivo(ArrayList<Persona> personas) {
+	public void escribirEnArchivo(ArrayList<Persona> arraypersonas) {
 		try {
 			salida = new ObjectOutputStream(new FileOutputStream(archivo));
-			salida.writeObject(personas);
+			salida.writeObject(arraypersonas);
 			salida.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

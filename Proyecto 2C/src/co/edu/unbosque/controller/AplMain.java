@@ -25,11 +25,9 @@ public class AplMain {
 		} catch (IllegalAccessException e) {
 		}
 		
-		
-		SistemaDAO sistema = new SistemaDAO();
-		CreacionUsuario usuario = new CreacionUsuario();
+
 		VentanaPrincipal vp = new VentanaPrincipal();
-		Controller controller = new Controller(vp, sistema);
+		Controller controller = new Controller(vp);
 	
 	}
 }

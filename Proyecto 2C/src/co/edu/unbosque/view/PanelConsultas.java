@@ -17,6 +17,9 @@ public class PanelConsultas extends JPanel {
 	public JButton btnMun;
 	public JButton btnCed;
 	
+	public ConsultaDep cdp = new ConsultaDep();
+	public ConsultaCed ccc = new ConsultaCed();
+	
 	public PanelConsultas() {
 		setLayout(null);
 		setBackground(Color.white);
@@ -62,6 +65,11 @@ public class PanelConsultas extends JPanel {
 		btnMun.setBounds(200, 80, 200, 25);
 		add(btnMun);
 		
+		btnCed = new JButton("Consulta por cédula");
+		btnCed.setFont(new Font("arial",Font.PLAIN,12));
+		btnCed.setBackground(Color.white);
+		btnCed.setBounds(5, 160, 200, 25);
+		add(btnCed);
 		
 		
 			
