@@ -23,10 +23,10 @@ import co.edu.unbosque.view.VentanaPrincipal;
  */
 public class Controller implements ActionListener {
 	
-	ArrayList<Persona> arraypersonas;
-	VentanaPrincipal vp=null;
+	private ArrayList<Persona> arraypersonas;
+	private VentanaPrincipal vp=null;
 	private Archivo archivo;
-	SistemaDAO sistema;
+	private SistemaDAO sistema;
 	
 
 	private String cedula;
@@ -123,7 +123,7 @@ public class Controller implements ActionListener {
 				else{
 					Persona persona = new Persona(cedula, fechaE, lugar_exp, nombre1, nombre2, apellido1, apellido2,
 							fechaN, lugar_nac, sexo);
-					if(sistema.agregarPersona(cedula, persona, sistema.arraypersonas)) {
+					if(sistema.agregarPersona(cedula, persona, arraypersonas)) {
 						mensaje="Persona añadida al sistema exitosamente";
 						vp.mostrarMensajes(mensaje);
 					}else {
