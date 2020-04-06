@@ -2,11 +2,15 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Persona;
 import co.edu.unbosque.model.Puesto;
 import co.edu.unbosque.model.Sistema;
+import co.edu.unbosque.model.persistencia.Archivo;
+import co.edu.unbosque.model.persistencia.SistemaDAO;
 import co.edu.unbosque.view.CreacionUsuario;
 import co.edu.unbosque.view.VentanaPrincipal;
 
@@ -19,8 +23,17 @@ import co.edu.unbosque.view.VentanaPrincipal;
  */
 public class Controller implements ActionListener {
 
-	Sistema sistema = null;
+	
+	SistemaDAO sistema = null;
+	
 	VentanaPrincipal vp = null;
+	
+	ArrayList<Persona> arraypersonas;
+
+	private Archivo archivo;
+
+	
+
 
 	private String cedula;
 	private String nombre1 = "", nombre2 = "", apellido1 = "", apellido2 = "", lugar_exp = "", lugar_nac = "",
@@ -34,11 +47,16 @@ public class Controller implements ActionListener {
 	 * @param persona Utiliza las propiedades del constructor de la clase Persona
 	 * @param puesto  Utiliza las propiedades del constructor de la clase Puesto
 	 */
-	public Controller(VentanaPrincipal vp, Sistema sistema) {
+	public Controller(VentanaPrincipal vp, SistemaDAO sistema) {
 		super();
-		this.sistema = sistema;
 		this.vp = vp;
 		actionListener(this);
+		this.sistema = sistema;
+		arraypersonas = new ArrayList<Persona>();
+		archivo= new Archivo();
+		sistema = new SistemaDAO(archivo);
+		
+		
 	}
 
 	/**
@@ -62,13 +80,13 @@ public class Controller implements ActionListener {
 		vp.pu.mu.regresar.addActionListener(escuchador);
 		vp.pu.mu.modificar.addActionListener(escuchador);
 		vp.pu.mu.guardar.addActionListener(escuchador);
-		
-		
+		vp.pp.ccc.regresarBtn.addActionListener(escuchador);
+		vp.pp.cdp.regresarBtn.addActionListener(escuchador);
 		vp.pp.btnDept.addActionListener(escuchador);
 		vp.pp.btnCed.addActionListener(escuchador);
-		vp.pp.btnInfPV.addActionListener(escuchador);
-		vp.pp.btnMun.addActionListener(escuchador);
-		vp.pp.btnReportePV.addActionListener(escuchador);
+		//vp.pp.btnInfPV.addActionListener(escuchador);
+		//vp.pp.btnMun.addActionListener(escuchador);
+		//vp.pp.btnReportePV.addActionListener(escuchador);
 
 	}
 
@@ -85,28 +103,33 @@ public class Controller implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		
 		
-		if (vp.pp.btnDept == event.getSource()) {	
-			
-			try {
+		if (vp.pp.btnDept == event.getSource()) {	// Oprimir el boton abre el panel consulta por departamento
 			vp.setVisible(false);
 			vp.pp.cdp.setVisible(true);
 			
-			} catch (Exception e) {
-
 			}
-		if (vp.pp.btnDept == event.getSource()) {	
-				
-			try {
+		if (vp.pp.cdp.regresarBtn == event.getSource()) {	// Oprimir el regresar dentro del panel consulta/dep ,se devuelve a la ventana principal
+			vp.setVisible(true);
+			vp.pp.cdp.setVisible(false);
+			
+			}
+	
+		
+		if (vp.pp.btnCed == event.getSource()) {	
 			vp.setVisible(false);
-			vp.pp.cdp.setVisible(true);
-				
-			} catch (Exception e) {
-
-			}	
-			
-			
-			
-		}
+			vp.pp.ccc.setVisible(true);   
+		
+			}
+		
+		if (vp.pp.ccc.regresarBtn == event.getSource()) {	
+			vp.setVisible(true);
+			vp.pp.ccc.setVisible(false);   
+		
+			}
+		
+		
+		
+		
 
 		// Oprimir el boton agregar personas del JPanel Agregar Personas
 		if (vp.pu.btnAgregar == event.getSource()) {
@@ -353,4 +376,3 @@ public class Controller implements ActionListener {
 
 	}
 	}
-}
